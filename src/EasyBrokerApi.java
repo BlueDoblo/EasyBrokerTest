@@ -3,12 +3,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
-public class App {
+public class EasyBrokerApi {
     public static void main(String[] args) throws Exception {
         System.out.println("-------------------------------------------- ");
         System.out.println("Get a Api de Propiedades para listar Titulos ");
@@ -19,7 +17,7 @@ public class App {
         System.out.println("------------------------------------------- ");
     }
 
-    public static void getEasyBroker(String uri) throws Exception {
+    public static void getEasyBroker(String uri ) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -36,9 +34,8 @@ public class App {
         for (int i = 0; i < properties.length(); i++) {
             JSONObject property = properties.getJSONObject(i);
             String title = property.getString("title");
-            System.out.println(i +" - "+ title);
+            System.out.println(i + " - " + title);
         }
 
     }
 }
-
